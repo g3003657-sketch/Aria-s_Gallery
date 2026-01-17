@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+   	<meta charset="UTF-8">
+   	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   	<title>Aria's Gallery</title>
+   	<link rel="icon" type="image/x-icon" href="Aria1.jpg">
+
+
+<style>
+html, body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+	background: linear-gradient(180deg, #be8860, #a37350);
+	font-family: Arial;
+}
+
+header {
+	margin-bottom: 6rem; /* space below the header */
+	text-align: center;
+	padding: 1.5rem 1.5rem;
+	box-sizing: border-box;
+	font-size: 300%;
+	color: rgb(225, 245, 255);
+	background: linear-gradient(135deg, #be8860, #562300);
+	text-shadow: 2px 2px 4px #000000;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columns */
+  gap: 1.5rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.gallery img {
+  width: 100%;
+  aspect-ratio: 3 / 4; /* portrait ratio */
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery img:hover {
+  transform: scale(1.04);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5);
+}
+
+/* Lightbox overlay */
+#lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* Lightbox image */
+#lightbox-img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 14px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* Close button */
+#lightbox .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 48px;
+  color: white;
+  cursor: pointer;
+  user-select: none;
+}
+
+p {
+	text-align: center;
+	font-family: arial;
+	font-size: 130%;
+}
+
+
+footer {
+	padding: 10px;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	font-size: 200%;
+	text-align: center;
+	color: rgb(225, 245, 255);
+	background: linear-gradient(135deg, #be8860, #562300);
+	text-shadow: 2px 2px 4px #000000;
+	margin-top: 10rem;
+}
+</style>
+
+</head>
+<body>
+
+<!-- this was made 1/16/2026 -->
+
+<header>
+	<h1>Aria's Gallery</h1>
+</header>
+
+<main>
+  <section class="gallery">
+    <img src="Aria1.jpg" alt="Aria 1" onclick="openLightbox(this)">
+    <img src="Aria2.jpg" alt="Aria 2" onclick="openLightbox(this)">
+    <img src="Aria3.jpg" alt="Aria 3" onclick="openLightbox(this)">
+    <img src="Aria4.jpg" alt="Aria 4" onclick="openLightbox(this)">
+
+    <img src="Aria5.jpg" alt="Aria 5" onclick="openLightbox(this)"> 
+    <img src="Aria6.jpg" alt="Aria 6" onclick="openLightbox(this)">
+    <img src="Aria7.jpg" alt="Aria 7" onclick="openLightbox(this)">
+    <img src="Aria8.jpg" alt="Aria 8" onclick="openLightbox(this)">
+
+    <img src="Aria9.jpg" alt="Aria 9" onclick="openLightbox(this)">
+    <img src="Aria10.jpg" alt="Aria 10" onclick="openLightbox(this)">
+    <img src="Aria11.jpg" alt="Aria 11" onclick="openLightbox(this)">
+    <img src="Aria12.jpg" alt="Aria 12" onclick="openLightbox(this)">
+
+    <img src="Aria13.jpg" alt="Aria 13" onclick="openLightbox(this)">
+    <img src="Aria14.jpg" alt="Aria 14" onclick="openLightbox(this)">
+    <img src="Aria15.jpg" alt="Aria 15" onclick="openLightbox(this)">
+    <img src="Aria16.jpg" alt="Aria 16" onclick="openLightbox(this)">
+  </section>
+</main>
+
+<div id="lightbox" onclick="closeLightbox()">
+  <span class="close">&times;</span>
+  <img id="lightbox-img">
+</div>
+
+<footer>
+  	<p>Thanks for visting my website</p>
+</footer>
+
+<script>
+  function openLightbox(img) {
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+
+    lightboxImg.src = img.src;
+    lightbox.style.display = "flex";
+  }
+
+  function closeLightbox() {
+    document.getElementById("lightbox").style.display = "none";
+  }
+
+  // Close with ESC key
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") {
+      closeLightbox();
+    }
+  });
+</script>
+
+</body>
+</html>
